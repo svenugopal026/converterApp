@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<center><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mathematical Converter</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    label {
+        font-weight: bold;
+    }
+    input[type="number"] {
+        width: 100px;
+        margin-right: 10px;
+    }
+    select {
+        margin-right: 10px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    #output {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <h1><font color="#800000"><u>Mathematical Converter</u></font></h1>
+    <label for="from"><font color="#000080">Enter Value Which You want to Convert</font>:</label>
+	<font size="4">
+    <input type="number" id="value"></font>
+	<span style="background-color: #FFFFFF"><font size="3">
+	<span style="font-size: 3pt">
+    <select id="from" style="font-weight: 700">
+        <option value="cm">Centimeter</option>
+        <option value="m">Meter</option>
+        <option value="km">Kilometer</option>
+        <option value="inch">Inch</option>
+        <option value="ft">Foot</option>
+        <option value="yd">Yard</option>
+        <option value="mi">Mile</option>
+    </select></span></font></span>
+    <button onclick="convert()"><b><font size="2">Convert</font></b></button>
+    <div id="output"></div>
+
+    <script>
+        function convert() {
+            const value = parseFloat(document.getElementById('value').value);
+            const fromUnit = document.getElementById('from').value;
+
+            let output = '';
+
+            switch (fromUnit) {
+                case 'cm':
+                    output = `${value} centimeters is equal to ${value / 100} meters`;
+                    break;
+                case 'm':
+                    output = `${value} meters is equal to ${value * 100} centimeters`;
+                    break;
+                case 'km':
+                    output = `${value} kilometers is equal to ${value * 1000} meters`;
+                    break;
+                case 'inch':
+                    output = `${value} inches is equal to ${value * 2.54} centimeters`;
+                    break;
+                case 'ft':
+                    output = `${value} feet is equal to ${value * 30.48} centimeters`;
+                    break;
+                case 'yd':
+                    output = `${value} yards is equal to ${value * 91.44} centimeters`;
+                    break;
+                case 'mi':
+                    output = `${value} miles is equal to ${value * 1609.34} meters`;
+                    break;
+                default:
+                    output = 'Invalid input';
+            }
+
+            document.getElementById('output').textContent = output;
+        }
+    </script>
+</body>
+  <h3><i><u><font color="#000080">Thank You. Visit Again.</font></u></i></h3>
+<p><i><font size="2">Created by Dr S Venu Gopal @ Copyright</font></i></p>
+</html>
